@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Fleet App Bootstrap Template</title>
+  <title>Fleet App </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -83,8 +83,9 @@
                     <td th:text="${country.nationality}"></td>
                     <td>
                       <div class="btn-group">
-                          <a th:href="@{/country/findById(id=${country.id})}" class="btn btn-primary" id="editButton">Edit</a>
-                          <a th:href="@{/country/delete(id=${country.id})}" class="btn btn-primary" id="deleteButton">Delete</a>
+                          <a th:href="@{/country/findById(id=${country.id})}" class="btn btn-primary" id="editButton"><i class="bi bi-pencil-square"></i></a>
+                        <!--  <a th:href="@{/country/delete/(id=${country.id})}" class="btn btn-danger" id="deleteButton"  data-target="#deleteModal">Delete</a>-->
+                       <button th:href="@{/country/delete/[${country.id}]}" type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
 
                       </div>
                     </td>
@@ -103,6 +104,27 @@
 
 
 
+<!--
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModal">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-danger" id="deletecountry"  href="">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 
 
 
@@ -215,26 +237,26 @@
              
      <!-- Delete Country-->  
      
-     
-     <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+ <!--    
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Confirm Delete</h5>
+        <h5 class="modal-title">Confirm delete</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to delete this record</p>
+        <p>Are you sure you want to delete this record?</p>
       </div>
       <div class="modal-footer">
-       <a  class="btn btn-primary" id="deleteButton" href="" >Delete</a>
+        <a href="" class="btn btn-primary" id="delRef">Yes, Delete</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>      
+</div>      -->
 
 
   <div th:replace="index.html"></div>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,5 +50,12 @@ public class CountryController {
 	public String update(Country country) {
 		countryService.save(country);
 		return "redirect:/country";
+	}
+	
+	@RequestMapping(value="/country/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+	@ResponseBody
+	public String delete(@PathVariable Integer id) {
+	    countryService.delete(id);
+	    return "redirect:/country";
 	}
 }
