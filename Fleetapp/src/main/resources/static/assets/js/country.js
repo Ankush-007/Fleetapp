@@ -20,6 +20,27 @@ $(document).ready(function(){
   });
 
 
+  $('table #detailButton').on('click', function(event){
+	event.preventDefault();
+	
+	//Countries/findById
+	
+	var href = $(this).attr('href');
+	
+	$.get(href,function(country,status){
+		$('#idDetails').val(country.id);
+		$('#capitalDetails').val(country.capital);
+		$('#codedetails').val(country.code);
+		$('#continentdetails').val(country.continent);
+		$('#descriptiondetails').val(country.description);
+		$('#nationalitydetails').val(country.nationality);
+		
+	});
+    $('#detailsModal').modal('show');
+  });
+
+
+
 
   
 
@@ -30,7 +51,7 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
+/*$(document).ready(function(){
   // Show modal when button is clicked
  // Delete country
  $('table #deleteButton').on('click',function(event) {
@@ -45,6 +66,6 @@ $(document).ready(function(){
   $('.close').on('click', function(){
     $('#deleteModal').modal('hide');
   });
-});
+});*/
 
 

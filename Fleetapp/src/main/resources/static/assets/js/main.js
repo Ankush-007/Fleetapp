@@ -11,13 +11,17 @@ $(document).ready(function(){
   $('#myButton').on('click', function(){
     $('#addModal').modal('show');
   });
+  
+  
+    $('#Button').on('click', function(){
+    $('#addModal').modal('show');
+  });
 
   // Hide modal when close button is clicked
   $('.close').on('click', function(){
     $('#addModal').modal('hide');
   });
 });
-
 
 
 

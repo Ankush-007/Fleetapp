@@ -52,10 +52,11 @@ public class CountryController {
 		return "redirect:/country";
 	}
 	
-	@RequestMapping(value="/country/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
-	@ResponseBody
-	public String delete(@PathVariable Integer id) {
-	    countryService.delete(id);
-	    return "redirect:/country";
-	}
+
+	
+	 @RequestMapping(value = "/country/delete/{id}", method = RequestMethod.GET)
+	    public String delete(@PathVariable("id") int id, Model model) {
+		 countryService.delete(id);
+		    return "redirect:/country";
+	    } 
 }
