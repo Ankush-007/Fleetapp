@@ -30,5 +30,10 @@ public class CountryService {
 	public Optional<Country> findById(int id) {
 		return countryRepository.findById(id);
 	}
+
+	public void delete(int id) {
+       countryRepository.deleteById(id);
+       System.out.println("country deleted successfully....");
+	}
 	
 }

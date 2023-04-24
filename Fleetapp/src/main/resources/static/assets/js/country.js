@@ -18,20 +18,54 @@ $(document).ready(function(){
 	});
     $('#editModal').modal('show');
   });
-  
-   // Show modal when button is clicked
-  $('table #deleteButton').on('click', function(event){
+
+
+  $('table #detailButton').on('click', function(event){
 	event.preventDefault();
 	
-	$('#deleteModal').modal();
+	//Countries/findById
+	
+	var href = $(this).attr('href');
+	
+	$.get(href,function(country,status){
+		$('#idDetails').val(country.id);
+		$('#capitalDetails').val(country.capital);
+		$('#codedetails').val(country.code);
+		$('#continentdetails').val(country.continent);
+		$('#descriptiondetails').val(country.description);
+		$('#nationalitydetails').val(country.nationality);
+		
+	});
+    $('#detailsModal').modal('show');
   });
+
+
+
+
   
-  
-  
-  
-  
+
   // Hide modal when close button is clicked
   $('.close').on('click', function(){
-    $('#addModal').modal('hide');
+    $('#editModal').modal('hide');
   });
 });
+
+
+/*$(document).ready(function(){
+  // Show modal when button is clicked
+ // Delete country
+ $('table #deleteButton').on('click',function(event) {
+		event.preventDefault();
+		var href = $(this).attr('href');
+		
+		$('#deletecountry').attr('href', href);
+		$('#deleteModal').modal();	
+		alert("delete working");	
+	});
+  // Hide modal when close button is clicked
+  $('.close').on('click', function(){
+    $('#deleteModal').modal('hide');
+  });
+});*/
+
+

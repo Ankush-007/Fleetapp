@@ -89,6 +89,30 @@ public class Country {
 	public void setStates(List<State> states) {
 		this.states = states;
 	}
+	
+
+	public Country() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Country(Integer id, String code, String capital, String description, String nationality, String continent,
+			List<State> states) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.capital = capital;
+		this.description = description;
+		this.nationality = nationality;
+		this.continent = continent;
+		this.states = states;
+	}
+
+	@Override
+	public String toString() {
+		return "Country [id=" + id + ", code=" + code + ", capital=" + capital + ", description=" + description
+				+ ", nationality=" + nationality + ", continent=" + continent + ", states=" + states + "]";
+	}
 
 	
 }
