@@ -1,10 +1,24 @@
-/**
-* Template Name: NiceAdmin
-* Updated: Mar 09 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
+$(document).ready(function(){
+  // Show modal when button is clicked
+  $('#myButton').on('click', function(event){
+	event.preventDefault();
+	
+
+  });
+ // Hide modal when close button is clicked
+  $('.close').on('click', function(){
+    $('#addModal').modal('hide');
+  });
+  
+
+
+  
+});
+
+
+
+
 
 
 

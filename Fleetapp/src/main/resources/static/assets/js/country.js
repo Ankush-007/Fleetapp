@@ -51,21 +51,5 @@ $(document).ready(function(){
 });
 
 
-/*$(document).ready(function(){
-  // Show modal when button is clicked
- // Delete country
- $('table #deleteButton').on('click',function(event) {
-		event.preventDefault();
-		var href = $(this).attr('href');
-		
-		$('#deletecountry').attr('href', href);
-		$('#deleteModal').modal();	
-		alert("delete working");	
-	});
-  // Hide modal when close button is clicked
-  $('.close').on('click', function(){
-    $('#deleteModal').modal('hide');
-  });
-});*/
 
 

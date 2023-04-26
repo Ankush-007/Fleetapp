@@ -52,30 +52,30 @@
         <div class="col-lg-8">
           <div class="row">             
              
-             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo"> New Location</button>
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo">Add New </button>
 
              
             <table class="table datatable">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Address</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Details</th>
                     <th scope="col">Action</th>
                     
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="location:${location}">
-                    <td th:text="${location.id}"></td>
-                    <td th:text="${location.city}"></td>
-                    <td th:text="${location.address}"></td>
+                  <tr th:each="vehiclemake:${vehiclemake}">
+                    <td th:text="${vehiclemake.id}"></td>
+                    <td th:text="${vehiclemake.description}"></td>
+                    <td th:text="${vehiclemake.details}"></td>
 
                     <td>
                       <div class="btn-group">
-                          <a th:href="@{/location/findById(id=${location.id})}" class="btn btn-primary" id="editButton"><i class="bi bi-pencil-square"></i></a>
-                          <a th:href="@{/location/findById(id=${location.id})}" class="btn btn-secondary" id="detailButton"><i class="bi bi-ticket-detailed"></i></a>
-                          <a th:href="@{/location/delete/{id}(id=${location.id})}" type="button" class="btn btn-danger" id="deleteButton"  ><i class="bi bi-trash"></i></a>
+                          <a th:href="@{/vehiclemake/findById(id=${vehiclemake.id})}" class="btn btn-primary" id="editButton"><i class="bi bi-pencil-square"></i></a>
+                          <a th:href="@{/vehiclemake/findById(id=${vehiclemake.id})}" class="btn btn-secondary" id="detailButton"><i class="bi bi-ticket-detailed"></i></a>
+                          <a th:href="@{/vehiclemake/delete/{id}(id=${vehiclemake.id})}" type="button" class="btn btn-danger" id="deleteButton"  ><i class="bi bi-trash"></i></a>
 
                       </div>
                     </td>
@@ -94,18 +94,18 @@
   
   
   
-  <!-- add New country -->
+  <!-- add New vehiclemake -->
   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addModal"> Add New Location</h5>
+        <h5 class="modal-title" id="addModal"> Add New vehiclemake</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form th:action="@{/location/addNew}" method="post">
+        <form th:action="@{/vehiclemake/addNew}" method="post">
         
            <div class="form-group">
             <label for="recipient-name" class="col-form-label">Id:</label>
@@ -116,38 +116,7 @@
             <label for="recipient-name" class="col-form-label">Description:</label>
             <input type="text" class="form-control" id="descriptionAdd" name="description">
           </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">city:</label>
-            <input type="text" class="form-control" id="cityAdd" name="city">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Address:</label>
-            <input type="text" class="form-control" id="addressAdd" name="address">
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Country:</label>
-             <select class="form-control" id="ddlCountryAdd" name="countryid">
-			       <option>-SELECT-</option>			    
-			       <option th:each="country : ${country}"
-				        th:value="${country.id}"
-				        th:text="${country.description}">
-				   </option>
-			    </select>   
-          </div>
-          
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">State:</label>
-            <select class="form-control" id="ddlStateAdd" name="stateid">
-			       <option>-SELECT-</option>			    
-			       <option th:each="state : ${state}"
-				        th:value="${state.id}"
-				        th:text="${state.name}">
-				   </option>
-			    </select>
-          </div>
+
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Details:</label>
@@ -165,7 +134,7 @@
       </div>
     </div>
   </div>
-</div> <!-- End addNew Country -->         
+</div> <!-- End addNew vehiclemake -->         
 
   
   
@@ -186,7 +155,7 @@
 
 
 
-  <!-- details Location -->
+  <!-- details vehiclemake -->
   <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -206,37 +175,7 @@
             <input type="text" class="form-control" id="descriptionDetails" name="description">
           </div>
           
-          <div class="form-group">
-            <label for="cityAdd" class="col-form-label">City:</label>
-            <input type="text" class="form-control" id="cityDetails" name="city">
-          </div>
           
-          <div class="form-group">
-            <label for="detailsAdd" class="col-form-label">Address:</label>
-            <textarea type="text" class="form-control" id="addressDetails" name="address"></textarea>
-          </div> 
-          
-         <div class="form-group">
-		    <label for="ddlCountryAdd" class="col-form-label">Country: </label>
-			    <select class="form-control" id="ddlCountryDetails" name="countryid">
-			       <option>-SELECT-</option>			    
-			       <option th:each="country : ${country}"
-				        th:value="${country.id}"
-				        th:text="${country.description}">
-				   </option>
-			    </select>				    
-		  </div>
-
-         <div class="form-group">
-		    <label for="ddlStateAdd" class="col-form-label">State: </label>
-			    <select class="form-control" id="ddlStateDetails" name="stateid">
-			       <option>-SELECT-</option>			    
-			       <option th:each="state : ${state}"
-				        th:value="${state.id}"
-				        th:text="${state.name}">
-				   </option>
-			    </select>				    
-		  </div>
           
           <div class="form-group">
             <label for="detailsAdd" class="col-form-label">Details:</label>
@@ -247,14 +186,14 @@
 
     </div>
 
-</div> <!-- End addNew Location --> 
+</div> <!-- End addNew vehiclemake --> 
 
 
 
 
 
 
-<!-- Update Location -->
+<!-- Update vehiclemake -->
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -265,7 +204,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form th:action="@{/location/update}" method="put">
+        <form th:action="@{/vehiclemake/update}" method="put">
           <div class="form-group">
             <label for="idEdit" class="col-form-label">Id:</label>
             <input type="text" class="form-control" id="idEdit" name="id" readonly>
@@ -276,37 +215,7 @@
             <input type="text" class="form-control" id="descriptionEdit" name="description" required>
           </div>
           
-          <div class="form-group">
-            <label for="cityEdit" class="col-form-label">City:</label>
-            <input type="text" class="form-control" id="cityEdit" name="city" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="detailsEdit" class="col-form-label">Address:</label>
-            <textarea type="text" class="form-control" id="addressEdit" name="address"></textarea>
-          </div> 
-          
-         <div class="form-group">
-		    <label for="ddlCountryEdit" class="col-form-label">Country: </label>
-			    <select class="form-control" id="ddlCountryEdit" name="countryid">
-			       <option>-SELECT-</option>
-			       <option th:each="country : ${country}"
-				        th:value="${country.id}"
-				        th:text="${country.description}">
-				   </option>
-			    </select>				    
-		  </div>
-
-         <div class="form-group">
-		    <label for="ddlStateEdit" class="col-form-label">State: </label>
-			    <select class="form-control" id="ddlStateEdit" name="stateid">
-			       <option>-SELECT-</option>
-			       <option th:each="state : ${state}"
-				        th:value="${state.id}"
-				        th:text="${state.name}">
-				   </option>
-			    </select>				    
-		  </div>
+         
           
           <div class="form-group">
             <label for="detailsAdd" class="col-form-label">Details:</label>
@@ -321,7 +230,7 @@
 
     </div>
   </div>
-</div> <!-- End update location --> 
+</div> <!-- End update vehiclemake --> 
   
   
 
@@ -331,7 +240,7 @@
   
 
 <div th:replace="index.html"></div>
- <script src="assets/js/vehicelmake.js"></script>
+ <script src="assets/js/vehiclemake.js"></script>
 
 </body>
 
