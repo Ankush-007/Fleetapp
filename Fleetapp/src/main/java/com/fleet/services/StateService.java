@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fleet.model.State;
-import com.fleet.repo.CountryRepository;
 import com.fleet.repo.StateRepository;
 
 @Service
