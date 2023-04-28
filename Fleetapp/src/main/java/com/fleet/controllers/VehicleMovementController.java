@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fleet.model.Supplier;
+import com.fleet.model.Location;
 import com.fleet.model.Vehicle;
 import com.fleet.model.VehicleMovement;
-import com.fleet.services.SupplierService;
+import com.fleet.services.LocationService;
 import com.fleet.services.VehicleMovementService;
 import com.fleet.services.VehicleService;
 
@@ -27,7 +27,7 @@ public class VehicleMovementController {
 	private VehicleService vehicleService;
 	
 	@Autowired
-	private SupplierService supplierService;
+	private LocationService locationService;
 	
 	@Autowired
 	private VehicleMovementService vehiclemovementService;
@@ -38,8 +38,8 @@ public class VehicleMovementController {
 		List<Vehicle> vehicleList=vehicleService.getVehicles();
 		model.addAttribute("vehicle", vehicleList);
 		
-		List<Supplier> supplierList=supplierService. getSuppliers();
-		model.addAttribute("supplier", supplierList);
+		List<Location> locationList=locationService. getLocation();
+		model.addAttribute("location", locationList);
 		
 		List<VehicleMovement> vehiclemovementList=vehiclemovementService. getVehicleMovements();
 		model.addAttribute("vehiclemovement", vehiclemovementList);

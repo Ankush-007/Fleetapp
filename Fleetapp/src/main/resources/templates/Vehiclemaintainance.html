@@ -122,7 +122,7 @@
             <label for="recipient-name" class="col-form-label">Vehicle:</label>
             <select class="form-control" id="vehicleAdd" name="vehicleid">
 			       <option>-SELECT-</option>			    
-			       <option th:each="vehicle : ${vehicles}"
+			       <option th:each="vehicle : ${vehicle}"
 				        th:value="${vehicle.id}"
 				        th:text="${vehicle.description}">
 				   </option>
